@@ -8,10 +8,10 @@ done
 
 echo "=> Creating an admin user in MongoDB"
 mongo admin --eval "db.createUser({user: 'admin', pwd: '$PWD_ROOT', roles:['root']});"
-mongo admin -u admin -p $PWD_ROOT --eval "db.getSiblingDB('sdgtlctest').createUser({user: 'sdg', pwd: '$PWD_SDG', roles:['readWrite']});"
 mongo admin -u admin -p $PWD_ROOT --eval "db.getSiblingDB('sdg').createUser({user: 'sdg', pwd: '$PWD_SDG', roles:['readWrite']});"
+mongo admin -u admin -p $PWD_ROOT --eval "db.getSiblingDB('sdgtest').createUser({user: 'sdg', pwd: '$PWD_SDG', roles:['readWrite']});"
 mongo admin -u admin -p $PWD_ROOT --eval "db.getSiblingDB('sdgtlc').createUser({user: 'sdg', pwd: '$PWD_SDG', roles:['readWrite']});"
-
+mongo admin -u admin -p $PWD_ROOT --eval "db.getSiblingDB('sdgtlctest').createUser({user: 'sdg', pwd: '$PWD_SDG', roles:['readWrite']});"
 
 echo "=> Done!"
 touch /data/db/.mongodb_password_set
